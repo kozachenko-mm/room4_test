@@ -1,7 +1,11 @@
-import {createStore} from 'redux'
-import tracksReduser from './trackReduser'
-import { devToolsEnhancer } from 'redux-devtools-extension';
+import { createStore, combineReducers, applyMiddleware } from "redux";
+import {tracksReduser} from "./trackReduser";
+import { composeWithDevTools } from "redux-devtools-extension";
+import thunk from "redux-thunk";
 
-const store = createStore(tracksReduser, devToolsEnhancer())
+// const rootRedusers = combineReducers({ tracksReduser });
+const enhancer = applyMiddleware(thunk);
 
-export default store
+const store = createStore(tracksReduser,composeWithDevTools(enhancer));
+
+export default store;
