@@ -13,7 +13,7 @@ class HomePage extends Component {
     // console.log(data);
 
     return (
-      <ul>
+        <ul>
         {data.map((item, ind) => (
           <TrackCard key={item.mbid || ind} track={item} />
         ))}
