@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import { Provider } from "react-redux";
-import { BrowserRouter, Route } from "react-router-dom";
+import { BrowserRouter, HashRouter, Route } from "react-router-dom";
 import "./index.css";
 import App from "./components/App";
 import store from "./redux/store";
@@ -13,11 +13,13 @@ axios.get(
 
 ReactDOM.render(
   <React.StrictMode>
-    <BrowserRouter>
+    {/* <BrowserRouter> */}
+    <HashRouter>
       <Provider store={store}>
         <Route component={App} />
       </Provider>
-    </BrowserRouter>
+      </HashRouter>
+    {/* </BrowserRouter> */}
   </React.StrictMode>,
   document.getElementById("root")
 );
