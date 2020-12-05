@@ -1,4 +1,4 @@
-import { Types } from "./actionsTypes";
+import { Types } from "../actionsTypes";
 
 export const fetchTracksStart = () => ({
   type: Types.FETCH_TRACKS_START,

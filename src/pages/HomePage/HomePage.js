@@ -1,11 +1,13 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import TrackCard from "../components/TrackCard/TrackCard";
-import { fetchTracks } from "../redux/tracksOperation";
+import TrackCard from "../../components/TrackCard/TrackCard";
+import { fetchTracks } from "../../redux/tracks/tracksOperation";
+import styles from './HomePage.module.css'
 
 class HomePage extends Component {
+
   componentDidMount() {
-    this.props.fetchTracks();
+    this.props.fetchTracks('1');
   }
 
   render() {
@@ -13,7 +15,7 @@ class HomePage extends Component {
     // console.log(data);
 
     return (
-        <ul>
+        <ul className={styles.list}>
         {data.map((item, ind) => (
           <TrackCard key={item.mbid || ind} track={item} />
         ))}
@@ -23,7 +25,7 @@ class HomePage extends Component {
 }
 
 const mapStateToProps = (state) => ({
-  data: state.tracks,
+  data: state.tracks.tracks,
 });
 
 const mapDispatchToProps = {

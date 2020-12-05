@@ -1,4 +1,4 @@
-import { Types } from "./actionsTypes";
+import { Types } from "../actionsTypes";
 import { combineReducers } from "redux";
 
 const successReduser = (state = [], { type, payload }) => {

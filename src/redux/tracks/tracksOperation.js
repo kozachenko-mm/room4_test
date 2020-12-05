@@ -1,10 +1,10 @@
 import { fetchTracksStart, fetchTracksSuccess, fetchTracksError } from "./tracksAction";
-import { getTopTracks } from "../services/api";
+import { getTopTracks } from "../../services/api";
 
-export const fetchTracks = () => (dispatch) => {
+export const fetchTracks = (n) => (dispatch) => {
   dispatch(fetchTracksStart());
 
-  getTopTracks()
+  getTopTracks(n)
     .then((res) => {
       dispatch(fetchTracksSuccess(res.data));
     })

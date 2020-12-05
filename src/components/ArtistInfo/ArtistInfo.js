@@ -1,20 +1,38 @@
-import React, { useState, useEffect } from "react";
-import { getArtistInfo } from "../../services/api";
+import { fetchArtist } from "../../redux/artist/artistOperation";
+import { connect } from "react-redux";
 
-const ArtistInfo = ({ match }) => {
-  const [artist, setArtist] = useState({});
-  useEffect(() => {
-    getArtistInfo(match.params.name)
-      .then(({ data }) => setArtist(data.artist))
-      .catch((error) => console.log(error));
-//   console.log(artist.bio.content)
+import React, { Component } from "react";
 
-  }, [match.params.name]);
-  return (
-    <div>
-      {(Object.keys(artist).length > 0) && (<p>{artist.bio.content}</p>)}
-    </div>
-  );
+class ArtistInfo extends Component {
+  componentDidMount() {
+    const name = this.props.match.params.name;
+    this.props.fetchArtist(name);
+  }
+
+  createMarkup = (text) => {
+    return { __html: text };
+  };
+
+  render() {
+    const { artist } = this.props;
+    console.log(this.props.match.params.name);
+    console.log(artist);
+
+    return (
+      <div>
+        {Object.keys(artist).length > 0 && (
+          <p dangerouslySetInnerHTML={this.createMarkup(artist.bio.content)} />
+        )}
+      </div>
+    );
+  }
+}
+const mapStateToProps = (state) => ({
+  artist: state.artist.artist,
+});
+
+const mapDispatchToProps = {
+  fetchArtist,
 };
 
-export default ArtistInfo;
+export default connect(mapStateToProps, mapDispatchToProps)(ArtistInfo);
