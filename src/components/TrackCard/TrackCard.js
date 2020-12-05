@@ -7,10 +7,15 @@ const TrackCard = ({ track }) => {
   const [image, setImage] = useState([]);
 
   useEffect(() => {
+    let isSubscribed = true
     getImages(track.artist.name, track.name)
       .then(({ data }) => setImage(data.track))
       .catch((error) => console.log(error));
-  }, [track]);
+
+      // eslint-disable-next-line no-unused-vars
+      return () => isSubscribed = false
+
+  }, [track.artist.name, track.name]);
 
   return (
     <li className={styles.listItem}>

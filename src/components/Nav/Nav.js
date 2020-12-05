@@ -12,7 +12,7 @@ const Nav = () => (
       </li>
       <li className={styles.listItem}>
         <NavLink to="/search" className={styles.link} activeClassName={styles.activeLink}>
-          Searsh
+          Searsh TRACK
         </NavLink>
       </li>
     </ul>

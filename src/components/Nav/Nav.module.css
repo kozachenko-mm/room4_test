@@ -1,5 +1,5 @@
 .nav {
-    box-shadow: 0 2px 2px rgb(180, 179, 179);
+    /* box-shadow: 0 2px 2px rgb(180, 179, 179); */
     margin-bottom: 20px;
   }
   
@@ -7,9 +7,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    list-style: none;
-    
-   
+    list-style: none;  
   }
   
   .listItem {
@@ -33,5 +31,7 @@
   .activeLink {
     color: rgb(61, 101, 175);
     /* font-size: 22px; */
-
+  }
+  .svg {
+      color: inherit;
   }

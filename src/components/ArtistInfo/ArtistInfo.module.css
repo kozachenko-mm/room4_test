@@ -1,0 +1,29 @@
+.head {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+}
+
+.name {
+    font-size: 40px;
+    font-weight: bold;
+    color: #faebd7;
+}
+
+.img {
+    margin-right: 50px;
+}
+
+.text {
+    font-size: 18px;
+    color: #ffffff;
+}
+
+a {
+    text-decoration: none;
+    color: rgb(91, 91, 247)
+}
+
+.tags {
+    color: #ffffff
+}

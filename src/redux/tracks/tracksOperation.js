@@ -8,5 +8,5 @@ export const fetchTracks = (n) => (dispatch) => {
     .then((res) => {
       dispatch(fetchTracksSuccess(res.data));
     })
-    .catch((error) => dispatch(fetchTracksError(error)));
+    .catch((error) => dispatch(fetchTracksError(error.message)));
 };
