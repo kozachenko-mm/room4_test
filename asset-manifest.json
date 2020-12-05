@@ -1,0 +1,21 @@
+{
+  "files": {
+    "main.css": "/room4_test/static/css/main.2b7dacd4.chunk.css",
+    "main.js": "/room4_test/static/js/main.63617250.chunk.js",
+    "main.js.map": "/room4_test/static/js/main.63617250.chunk.js.map",
+    "runtime-main.js": "/room4_test/static/js/runtime-main.a1bc2cf7.js",
+    "runtime-main.js.map": "/room4_test/static/js/runtime-main.a1bc2cf7.js.map",
+    "static/js/2.30050586.chunk.js": "/room4_test/static/js/2.30050586.chunk.js",
+    "static/js/2.30050586.chunk.js.map": "/room4_test/static/js/2.30050586.chunk.js.map",
+    "index.html": "/room4_test/index.html",
+    "static/css/main.2b7dacd4.chunk.css.map": "/room4_test/static/css/main.2b7dacd4.chunk.css.map",
+    "static/js/2.30050586.chunk.js.LICENSE.txt": "/room4_test/static/js/2.30050586.chunk.js.LICENSE.txt",
+    "static/media/arrow_circle_up-white-48dp.6b0739c8.svg": "/room4_test/static/media/arrow_circle_up-white-48dp.6b0739c8.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.a1bc2cf7.js",
+    "static/js/2.30050586.chunk.js",
+    "static/css/main.2b7dacd4.chunk.css",
+    "static/js/main.63617250.chunk.js"
+  ]
+}
