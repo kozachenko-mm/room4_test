@@ -1,14 +1,22 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import Loader from "react-loader-spinner";
+import PropTypes from "prop-types";
+
+import { goUp } from "../../services/goUp";
+import styles from "./HomePage.module.css";
 import ControlsButtons from "../../components/ControlsButtons/ControlsButtons";
 import ScrollUpButton from "../../components/ScrollUpButton/ScrollUpButton";
 import TrackCard from "../../components/TrackCard/TrackCard";
 import { fetchTracks } from "../../redux/tracks/tracksOperation";
-import styles from "./HomePage.module.css";
-import { goUp } from "../../services/goUp";
 
 class HomePage extends Component {
+  static propTypes = {
+    isLoading: PropTypes.bool.isRequired,
+    isError: PropTypes.bool,
+    data: PropTypes.array.isRequired,
+  };
+
   state = {
     numberPage: 1,
   };
@@ -37,7 +45,6 @@ class HomePage extends Component {
     const { numberPage } = this.state;
     return (
       <>
-        <ControlsButtons numberPage={numberPage} handleButtons={this.handleButtons} />
         {isLoading && (
           <Loader
             className={styles.loader}
@@ -48,12 +55,17 @@ class HomePage extends Component {
           />
         )}
         {isError && <p>{isError}</p>}
-        <ul className={styles.list}>
-          {data.map((item, ind) => (
-            <TrackCard key={item.mbid || ind} track={item} />
-          ))}
-        </ul>
-        <ControlsButtons numberPage={numberPage} handleButtons={this.handleButtons} />
+        {data.length > 0 && (
+          <>
+            <ControlsButtons numberPage={numberPage} handleButtons={this.handleButtons} />
+            <ul className={styles.list}>
+              {data.map((item, ind) => (
+                <TrackCard key={item.mbid || ind} track={item} />
+              ))}
+            </ul>
+            <ControlsButtons numberPage={numberPage} handleButtons={this.handleButtons} />
+          </>
+        )}
         <ScrollUpButton />
       </>
     );

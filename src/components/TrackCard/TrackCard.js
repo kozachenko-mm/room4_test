@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 import styles from "./TrackCard.module.css";
 import { getImages } from "../../services/api";
@@ -7,14 +8,13 @@ const TrackCard = ({ track }) => {
   const [image, setImage] = useState([]);
 
   useEffect(() => {
-    let isSubscribed = true
+    let isSubscribed = true;
     getImages(track.artist.name, track.name)
       .then(({ data }) => setImage(data.track))
       .catch((error) => console.log(error));
 
-      // eslint-disable-next-line no-unused-vars
-      return () => isSubscribed = false
-
+    // eslint-disable-next-line no-unused-vars
+    return () => (isSubscribed = false);
   }, [track.artist.name, track.name]);
 
   return (
@@ -37,6 +37,14 @@ const TrackCard = ({ track }) => {
       </a>
     </li>
   );
+};
+
+TrackCard.prototype = {
+  track: PropTypes.shape({
+    name: PropTypes.string.isRequired,
+    artist: PropTypes.object.isRequired,
+    image: PropTypes.arrayOf(PropTypes.object).isRequired,
+  }).isRequired,
 };
 
 export default TrackCard;
