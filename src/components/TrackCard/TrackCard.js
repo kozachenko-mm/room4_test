@@ -28,7 +28,7 @@ const TrackCard = ({ track }) => {
         src={image?.album?.image[3]["#text"] || track.image[3]["#text"]}
         alt="#"
       />
-      <a className={styles.link} href={track.artist.url} target="blank">
+      <a className={styles.link} href={track.artist.url} >
         Read more of {track.artist.name} on Last.fm.
       </a>
     </li>

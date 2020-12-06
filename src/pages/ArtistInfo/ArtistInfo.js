@@ -2,11 +2,19 @@ import { fetchArtist } from "../../redux/artist/artistOperation";
 import { connect } from "react-redux";
 import Loader from "react-loader-spinner";
 import styles from "./ArtistInfo.module.css";
+import PropTypes from 'prop-types'
+
 
 import React, { Component } from "react";
 import { goUp } from "../../services/goUp";
 
 class ArtistInfo extends Component {
+  static propTypes ={
+    isLoading: PropTypes.bool.isRequired,
+    isError: PropTypes.string,
+    artist: PropTypes.object.isRequired,
+  }
+  
   componentDidMount() {
     goUp();
     const name = this.props.match.params.name;
@@ -19,7 +27,6 @@ class ArtistInfo extends Component {
 
   render() {
     const { artist, isError, isLoading } = this.props;
-
     return (
       <div>
         {isLoading && (

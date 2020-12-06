@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
+import styles from './SearchForm.module.css'
 
 import { ReactComponent as Search } from "../../images/search-black-24dp.svg";
 
@@ -12,14 +13,15 @@ const SearchForm = ({ handleSubmit }) => {
     setValue("");
   };
   return (
-    <form onSubmit={submitForm}>
+    <form className={styles.form} onSubmit={submitForm}>
       <input
+      className={styles.input}
         type="text"
         value={value}
         onChange={({ target }) => setValue(target.value)}
-        placeholdeer="Search track"
+        placeholder="Search track"
       />
-      <button type="submit" onClick={submitForm}>
+      <button className={styles.button} type="submit" onClick={submitForm}>
         <Search />
       </button>
     </form>

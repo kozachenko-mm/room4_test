@@ -1,11 +1,12 @@
 import React from "react";
 import PropTypes from "prop-types";
+import styles from './SearchList.module.css'
 
 const SearchList = ({ track }) => {
   return (
-    <li>
-      <span>{track.name} - </span>
-      <span>{track.artist}</span>
+    <li className={styles.listItem}>
+      <span className={styles.name}>{track.name} - </span>
+      <span className={styles.artist}>{track.artist}</span>
     </li>
   );
 };

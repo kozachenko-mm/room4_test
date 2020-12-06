@@ -1,0 +1,24 @@
+.form {
+    width: 70%;
+    margin: 0 auto;
+    margin-bottom: 20px;
+
+    display: flex;
+}
+.input {
+    width: 90%;
+    font-size: 20px;
+    padding: 10px;
+    outline: none;
+    border-radius: 10px;
+
+}
+.button {
+    width: 10%;
+    border-radius: 10px;
+    background: #ffffff;
+    outline: none;
+cursor: pointer;
+padding-top: 6px;
+
+}

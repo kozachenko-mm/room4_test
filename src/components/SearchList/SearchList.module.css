@@ -1,0 +1,12 @@
+.listItem {
+    width: 50%;
+    margin-bottom: 20px;
+}
+.name {
+    font-size: 18px;
+    color: #ffffff;
+}
+.artist {
+    font-size: 18px;
+    color: #fcd9d9;
+}

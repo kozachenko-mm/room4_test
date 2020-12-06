@@ -12,7 +12,7 @@ import { fetchTracks } from "../../redux/tracks/tracksOperation";
 class HomePage extends Component {
   static propTypes = {
     isLoading: PropTypes.bool.isRequired,
-    isError: PropTypes.bool,
+    isError: PropTypes.string,
     data: PropTypes.array.isRequired,
   };
 
