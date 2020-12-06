@@ -1,4 +1,5 @@
 import axios from "axios";
+
 const key = "b0ef57de6689f3bee614bd769ab91be2";
 
 export const getTopTracks = (number) => {

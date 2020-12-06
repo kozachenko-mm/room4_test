@@ -8,8 +8,8 @@ import Nav from "./Nav/Nav";
 export default class App extends Component {
   render() {
     return (
-      <div className={'container'}>
-        <Nav/>
+      <div className={"container"}>
+        <Nav />
         <Switch>
           <Route path="/" exact component={HomePage} />
           <Route path="/search" component={SearchPage} />

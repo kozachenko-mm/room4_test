@@ -8,5 +8,5 @@ export const fetchArtist = (name) => (dispatch) => {
     .then((res) => {
       dispatch(fetchArtistSuccess(res.data));
     })
-    .catch((error) => dispatch(fetchArtistError(error)));
+    .catch((error) => dispatch(fetchArtistError(error.message)));
 };

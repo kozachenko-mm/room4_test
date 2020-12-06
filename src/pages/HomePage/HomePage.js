@@ -73,8 +73,8 @@ class HomePage extends Component {
 }
 
 const mapStateToProps = (state) => ({
-  data: state.tracks.tracks,
-  isLoading: state.tracks.loading,
+  data: state.tracks,
+  isLoading: state.isLoading,
   isError: state.tracks.error,
 });
 

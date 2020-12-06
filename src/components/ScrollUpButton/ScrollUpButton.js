@@ -11,7 +11,7 @@ const ScrollUpButton = () => {
   };
 
   const handleUpButton = () => {
-    goUp()
+    goUp();
   };
 
   useEffect(() => {

@@ -1,22 +1,16 @@
-import React, { useState } from "react";
+import React from "react";
 import Loader from "react-loader-spinner";
 import SearchForm from "../../components/SearchForm/SearchForm";
 import SearchList from "../../components/SearchList/SearchList";
-import { getSearch } from "../../services/api";
 import styles from "./SearchPage.module.css";
+import { fetchSearch } from "../../redux/searchList/searchListOperation";
+import { connect } from "react-redux";
 
-const SearchPage = () => {
-  const [searchResult, setSearchResult] = useState([]);
-  const [isLoading, setIsLoading] = useState(false);
-  const [isError, setIsError] = useState("");
-
+const SearchPage = ({ searchResult, isLoading, isError, fetchSearch }) => {
   const handleSubmit = (value) => {
-    setIsLoading(true);
-    getSearch(value)
-      .then(({ data }) => setSearchResult(data.results.trackmatches.track))
-      .catch((error) => setIsError(error.message))
-      .finally(setIsLoading(false));
+    fetchSearch(value);
   };
+
   return (
     <div>
       <SearchForm handleSubmit={handleSubmit} />
@@ -40,5 +34,14 @@ const SearchPage = () => {
     </div>
   );
 };
+const mapStateToProps = (state) => ({
+  searchResult: state.search,
+  isLoading: state.isLoading,
+  iaError: state.error,
+});
 
-export default SearchPage;
+const mapDispatchToProps = {
+  fetchSearch,
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(SearchPage);
