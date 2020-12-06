@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import Loader from "react-loader-spinner";
 import PropTypes from "prop-types";
-
 import { goUp } from "../../services/goUp";
 import styles from "./HomePage.module.css";
 import ControlsButtons from "../../components/ControlsButtons/ControlsButtons";
@@ -45,6 +44,8 @@ class HomePage extends Component {
     const { numberPage } = this.state;
     return (
       <>
+        <ControlsButtons numberPage={numberPage} handleButtons={this.handleButtons} />
+
         {isLoading && (
           <Loader
             className={styles.loader}
@@ -57,7 +58,6 @@ class HomePage extends Component {
         {isError && <p>{isError}</p>}
         {data.length > 0 && (
           <>
-            <ControlsButtons numberPage={numberPage} handleButtons={this.handleButtons} />
             <ul className={styles.list}>
               {data.map((item, ind) => (
                 <TrackCard key={item.mbid || ind} track={item} />

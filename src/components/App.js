@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import { Switch, Route, Redirect } from "react-router-dom";
 import HomePage from "../pages/HomePage/HomePage";
-import SearchPage from "../pages/SearchPage";
-import ArtistInfo from "./ArtistInfo/ArtistInfo";
+import SearchPage from "../pages/SearchPage/SearchPage";
+import ArtistInfo from "../pages/ArtistInfo/ArtistInfo";
 import Nav from "./Nav/Nav";
 
 export default class App extends Component {

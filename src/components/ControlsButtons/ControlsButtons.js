@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import styles from "./ControlsButtons.module.css";
 
 const ControlsButtons = ({ numberPage, handleButtons }) => {
@@ -19,6 +20,10 @@ const ControlsButtons = ({ numberPage, handleButtons }) => {
       </button>
     </div>
   );
+};
+ControlsButtons.propTypes = {
+  numberPage: PropTypes.number.isRequired,
+  handleButtons: PropTypes.func.isRequired,
 };
 
 export default ControlsButtons;
